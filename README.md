@@ -12,28 +12,25 @@ Do you like building cool stuff?  Do APIs keep you up at night? We're looking fo
 Composer is the recommended way to utilize the NetDNA RWS SDK PHP library.  For more information on how to use Composer, see http://www.getcomposer.org .  
 
 1. Add "netdna/rws-sdk-php" as a dependency in your composer.json project file.
-
-```json
-{
-    "require": {
-        "netdna/rws-sdk-php": "2.*"
+    ```json
+    {
+        "require": {
+            "netdna/rws-sdk-php": "2.*"
+        }
     }
-}
-```
+    ```
 
 2. Download and install Composer (if not already installed).
-
-```bash
-curl -sS https://getcomposer.org/installer | php
-```
+    ```bash
+    curl -sS https://getcomposer.org/installer | php
+    ```
 
 3. Install your package dependencies.
+    ```bash
+    php composer.phar install -o
+    ```
 
-```bash
-php composer.phar install -o
-```
-
-This will download the NetDNA library and configure composer to use it.  Composer will also build an autoloader for your use in the next step.
+    This will download the NetDNA library and configure composer to use it.  Composer will also build an autoloader for your use in the next step.
 
 4. Use Composer's autoloader.
 
