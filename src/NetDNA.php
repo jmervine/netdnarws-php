@@ -16,13 +16,20 @@ class NetDNA {
 	
 	public $netdnarws_url = 'https://rws.netdna.com';
 	
-    private $consumer;
+	public $curl_debug = false;
+	
+	private $consumer;
 	
 	public function __construct($alias, $key, $secret, $options=null) {
 		$this->alias  = $alias;
 		$this->key    = $key;
 		$this->secret = $secret;
 		$this->consumer = new \NetDNA\OAuth\OAuthConsumer($key, $secret, NULL);
+		
+		if (isset $ptions['curl_debug'])
+		{
+			$this->curl_debug = $options['debug'];
+		}
 		
 	}
 
@@ -46,6 +53,11 @@ class NetDNA {
 
 		// create curl resource 
 		$ch = curl_init(); 
+		
+		if ($this->curl_debug)
+		{
+			curl_setopt($ch, CURLOPT_VERBOSE, true);
+		}
 		
 		// set url 
 		curl_setopt($ch, CURLOPT_URL, $req_req); 
